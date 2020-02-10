@@ -1,0 +1,15 @@
+.floatToLeft
+{
+  float:right;
+  padding:20px
+}
+.btn
+{
+  color:black
+}
+.stickyStoreDetails
+{
+    position: fixed;
+    top: 0;    
+    
+}

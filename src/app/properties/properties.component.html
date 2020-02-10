@@ -1,0 +1,44 @@
+
+<html>
+  <body>
+    <div class="floatRight">
+<button class="btn btn-primary">Tile View</button><button class="btn btn-success">List View</button></div>
+
+<table>
+
+<tr *ngFor="let data of propertiesData">
+
+<td *ngIf="data.mainImageUrl; else notShow" (click)="check(data.id)">
+  <div class="polaroid">
+  <img  alt="Can't display it now"  [src]="data.mainImageUrl" />
+ <div class="absoluteDiv">{{"$"+data.financial.listPrice}}<p class="text">{{data.physical.bathRooms+" ba , "+data.physical.bedRooms+" bd | "+data.physical.squareFeet+"sqft | Built in "+data.physical.yearBuilt}}</p></div>
+
+ <div style="height:50px;width:150px;border-right:1px solid black;border-bottom:1px solid black;float:left;position:relative">
+<p style="padding-left:15px">Current Rent</p>
+<p style="padding-left:15px;bottom:0.5px;top:17px;font-size:20px;position:absolute">{{"$"+data.financial.monthlyRent}}</p>
+
+ </div>
+ <div style="height:50px;width:150px;border-left:1px solid black;border-bottom:1px solid black;float:left;position:relative">
+   <p style="padding-left:15px">Cap Rate</p>
+<p style="padding-left:15px;bottom:0.5px;top:17px;font-size:20px;position:absolute">{{data.financial.capRate?data.financial.capRate:"--"}}</p>
+ </div>
+ <div style="height:50px;width:150px;border-right:1px solid black;float:left;position:relative"> <p style="padding-left:15px">Total Return</p>
+<p style="padding-left:15px;bottom:0.5px;top:17px;font-size:20px;position:absolute">{{data.financial.capRate?data.financial.capRate:"--"}}</p></div>
+ <div style="height:50px;width:150px;border-left:1px solid black;float:left;position:relative">
+   <p style="padding-left:15px">Neighbourhood</p>
+<app-rating style="padding-left:15px" [rating]="data.score.neighborhoodScore"></app-rating>
+ </div>
+<hr style="margin-top:80px"/>
+  <p class="caption" >{{data.address.address1}}</p>
+  <p class="last">{{data.address.city +','+data.address.state+' '+data.address.zip}}</p>
+  </div></td>
+<ng-template #notShow>
+  <td id="noDisplay"></td>
+</ng-template>
+  
+
+</tr>
+
+</table>
+</body>
+</html>
