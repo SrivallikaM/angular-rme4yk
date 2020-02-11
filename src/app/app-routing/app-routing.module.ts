@@ -8,6 +8,9 @@ import { AboutComponent } from '../about/about.component';
 import {ListDetailsComponent} from '../list-details/list-details.component'
 
 const appRoutes: Routes =[
+   {
+    path:'', component:PropertiesComponent,pathMatch:'full'
+  },
   {
     path:'properties', component:PropertiesComponent
   },
